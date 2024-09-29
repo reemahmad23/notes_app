@@ -22,7 +22,7 @@ class NoteItem extends StatelessWidget {
           ),
             ),
             subtitle: Padding(
-              padding: const EdgeInsets.only(top: 16, bottom: 16),
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
               child: Text('Upoade your projects in LinkedIn(chat_app)',
               style: TextStyle(
                 fontSize: 20,
