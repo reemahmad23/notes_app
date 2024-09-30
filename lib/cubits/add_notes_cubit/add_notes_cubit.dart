@@ -4,8 +4,8 @@ import 'package:app_notes/models/note_model.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
-class NotesCubit extends Cubit<AddNotesState>{
-  NotesCubit() : super(AddNotesInitial());
+class AddNotesCubit extends Cubit<AddNotesState>{
+  AddNotesCubit() : super(AddNotesInitial());
 
   addNote(NoteModel note) async
   {
