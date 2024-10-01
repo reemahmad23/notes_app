@@ -31,15 +31,17 @@ bool isLoading = false;
             }
           },
           builder: (context, state){
-            return ModalProgressHUD
-            (inAsyncCall: state is AddNotesLoading ? true : false, 
-            child: SingleChildScrollView(
-              child: AddNoteForm()
+            return AbsorbPointer(
+              absorbing:  state is AddNotesLoading ? true : false,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: SingleChildScrollView(
+                  child: AddNoteForm()
+                  ),
               ),
-              );
-        
+            );
           },
-              ),
+        ),
       ),
     );
   }
