@@ -17,9 +17,10 @@ bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: SingleChildScrollView(
+    return BlocProvider(
+      create:  (context) => AddNotesCubit(),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: BlocConsumer<AddNotesCubit, AddNotesState>(
           listener: (context, state){
             if (state is AddNotesFailure) {
@@ -32,10 +33,13 @@ bool isLoading = false;
           builder: (context, state){
             return ModalProgressHUD
             (inAsyncCall: state is AddNotesLoading ? true : false, 
-            child: AddNoteForm());
+            child: SingleChildScrollView(
+              child: AddNoteForm()
+              ),
+              );
         
           },
-      ),
+              ),
       ),
     );
   }
