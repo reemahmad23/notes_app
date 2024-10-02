@@ -1,5 +1,6 @@
 import 'package:app_notes/constants.dart';
 import 'package:app_notes/cubits/add_notes_cubit/add_notes_cubit.dart';
+import 'package:app_notes/cubits/notes_cubit/notes_cubit.dart';
 import 'package:app_notes/models/note_model.dart';
 import 'package:app_notes/simple_bloc_observer.dart';
 import 'package:app_notes/views/notes_view.dart';
@@ -22,10 +23,8 @@ class NotesApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => AddNotesCubit()),
-      ],
+    return BlocProvider(
+      create: (context) => NotesCubit(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
             theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'), 

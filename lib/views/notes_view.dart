@@ -10,9 +10,7 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: Scaffold(
+    return Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showModalBottomSheet(
@@ -27,7 +25,7 @@ class NotesView extends StatelessWidget {
         child: Icon(Icons.add),
         ),
         body: NotesViewBody(),
-      ),
-    );
+      );
+    
   }
 }
