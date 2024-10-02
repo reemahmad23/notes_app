@@ -8,24 +8,29 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class NotesListView extends StatelessWidget {
   const NotesListView({super.key});
 
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NotesCubit,NotesState>(
-      builder: (context,state) {
-        List<NoteModel> notes = BlocProvider.of<NotesCubit>(context).notes?? [];
+    return BlocBuilder<NotesCubit, NotesState>(
+      builder: (context, state) {
+
+        List<NoteModel> notes = BlocProvider.of<NotesCubit>(context).notes ?? [];
         return Padding(
         padding: const EdgeInsets.symmetric(vertical: 16),
         child: ListView.builder(
-          itemCount: notes.length,
+          itemCount: notes.length ,
           itemBuilder: (context, index){
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
-              child: NoteItem(),
+              child: NoteItem(
+                note: notes[index],
+              ),
             );
         
           }),
       );
       },
-    );
+      );
+    
   }
 }

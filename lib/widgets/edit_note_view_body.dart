@@ -3,7 +3,7 @@ import 'package:app_notes/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class EditNoteViewBody extends StatelessWidget {
-  const EditNoteViewBody({super.key});
+  const EditNoteViewBody({super.key, required String title});
 
   @override
   Widget build(BuildContext context) {

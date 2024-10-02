@@ -1,9 +1,11 @@
-import 'package:app_notes/widgets/edit_note_view.dart';
+import 'package:app_notes/models/note_model.dart';
+import 'package:app_notes/views/edit_note_view.dart';
 import 'package:flutter/material.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  const NoteItem({Key? key, required this.note}) : super(key: key);
 
+final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector( 
@@ -11,21 +13,21 @@ class NoteItem extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) {
-            return EditNoteView();
+            return const EditNoteView();
           }),
         );
       },
       child: Container(
         padding: EdgeInsets.only(top: 20, bottom: 20, left: 16,),
         decoration: BoxDecoration(
-          color: Colors.yellow,
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: Text('Flutter Tips',
+              title: Text(note.title,
               style: TextStyle(
                 fontSize: 26,
               color: Colors.black,
@@ -33,7 +35,7 @@ class NoteItem extends StatelessWidget {
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 10, bottom: 10),
-                child: Text('Upoade your projects in LinkedIn(chat_app)',
+                child: Text(note.subTitle,
                 style: TextStyle(
                   fontSize: 20,
                 color: Colors.black.withOpacity(0.6),
@@ -48,7 +50,7 @@ class NoteItem extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(right: 34),
-              child: Text('May 21 2024',
+              child: Text(note.date,
               style: TextStyle(
                 color: Colors.black.withOpacity(0.6),
               ),
