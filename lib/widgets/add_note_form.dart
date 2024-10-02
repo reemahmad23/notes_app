@@ -48,6 +48,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hintText: 'Content',
             maxLines: 5,
           ),
+          SizedBox(
+            height: 20,
+          ),
           ColorsListView(),
           SizedBox(
             height: 20,
@@ -71,7 +74,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     date: formattedCurrentDate, 
                     color: Colors.blue.value);
             
-                  BlocProvider.of<AddNotesCubit>(context).addNote(noteModel, context);  
+                  BlocProvider.of<AddNotesCubit>(context).addNote(noteModel);  
                 } else {
                   autovalidateMode = AutovalidateMode.always;
                 }
